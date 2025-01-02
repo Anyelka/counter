@@ -86,7 +86,7 @@ const Counter = ({ getDateFrom, getDateTo, format, onClick, show }) => {
   return (
     <AnimatePresence>
       {show && (
-        <div className="counter-wrapper counter-wrapper-absolute">
+        <div className="counter-wrapper">
           <motion.div
             className="counter counter-absolute"
             onClick={onClick}

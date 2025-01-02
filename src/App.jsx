@@ -1,26 +1,43 @@
+import { useState } from "react";
 import "./App.css";
 import CounterPage from "./components/counter/CounterPage";
 import Menu from "./components/menu/Menu";
-
-const RELATIONSHIP_START = "2021-12-04T04:00:00";
-const VIKSI_BIRTHDAY = "1994-10-23";
-const MARCI_BIRTHDAY = "1995-02-16";
+import PercentPage from "./components/percent/PercentPage";
+import { DATA } from "./constants";
 
 const counterAnimation = {
   transition: { duration: 0.25 },
 };
 
+const PAGES = {
+  COUNTER: "COUNTER",
+  PERCENT: "PERCENT",
+};
+
 function App() {
-  const relationshipStart = () => new Date(RELATIONSHIP_START);
-  const viksiBirthday = () => new Date(VIKSI_BIRTHDAY);
-  const marciBirthday = () => new Date(MARCI_BIRTHDAY);
+  const [open, setOpen] = useState(PAGES.COUNTER);
+  const [data, setData] = useState(DATA.US);
+
+  const relationshipStart = () => new Date(data.relationshipStart);
 
   const now = () => new Date();
 
+  const openCounter = () => setOpen(PAGES.COUNTER);
+  const openPercent = () => setOpen(PAGES.PERCENT);
+
   return (
     <>
-      <Menu />
-      <CounterPage getDateFrom={relationshipStart} getDateTo={now} />
+      <Menu openCounter={openCounter} openPercent={openPercent} />
+      {open === PAGES.COUNTER && (
+        <CounterPage getDateFrom={relationshipStart} getDateTo={now} />
+      )}
+      {open === PAGES.PERCENT && (
+        <PercentPage
+          getDateFrom={relationshipStart}
+          getDateTo={now}
+          persons={data.persons}
+        />
+      )}
     </>
   );
 }

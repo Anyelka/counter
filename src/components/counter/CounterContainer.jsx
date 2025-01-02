@@ -12,7 +12,7 @@ const CounterContainer = ({ getDateFrom, getDateTo }) => {
   };
 
   return (
-    <div className="counter-container">
+    <div className="counter-body">
       {Object.values(FORMATS).map((fmt) => (
         <Counter
           getDateFrom={getDateFrom}
