@@ -1,9 +1,8 @@
 import { useState } from "react";
-import "./App.css";
+import { FORMATS } from "../../constants";
 import Counter from "./Counter";
-import { FORMATS } from "./constants";
 
-const CounterContainer = ({ dateFrom, dateTo }) => {
+const CounterContainer = ({ getDateFrom, getDateTo }) => {
   const [format, setFormat] = useState(FORMATS.YEARS);
 
   const changeFormat = () => {
@@ -16,8 +15,8 @@ const CounterContainer = ({ dateFrom, dateTo }) => {
     <div className="counter-container">
       {Object.values(FORMATS).map((fmt) => (
         <Counter
-          dateFrom={dateFrom}
-          dateTo={dateTo}
+          getDateFrom={getDateFrom}
+          getDateTo={getDateTo}
           format={fmt}
           onClick={changeFormat}
           show={fmt === format}

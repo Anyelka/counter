@@ -1,6 +1,6 @@
 import "./App.css";
-import CounterContainer from "./CounterContainer";
-import CounterHeader from "./CounterHeader";
+import CounterContainer from "./components/counter/CounterContainer";
+import CounterHeader from "./components/counter/CounterHeader";
 
 const RELATIONSHIP_START = "2021-12-04T04:00:00";
 const VIKSI_BIRTHDAY = "1994-10-23";
@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="container">
       <CounterHeader />
-      <CounterContainer dateFrom={relationshipStart()} dateTo={now()} />
+      <CounterContainer getDateFrom={relationshipStart} getDateTo={now} />
     </div>
   );
 }
