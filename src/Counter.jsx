@@ -7,23 +7,17 @@ import {
   differenceInWeeks,
   differenceInYears,
 } from "date-fns";
-import { motion } from "motion/react";
-import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import "./App.css";
+import { FORMATS } from "./constants";
 
-const FORMATS = {
-  YEARS: "YEARS",
-  MONTHS: "MONTHS",
-  WEEKS: "WEEKS",
-  DAYS: "DAYS",
-  HOURS: "HOURS",
-  MINUTES: "MINUTES",
-  SECONDS: "SECONDS",
+const variants = {
+  initial: { y: 50, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+  exit: { y: -50, opacity: 0 },
 };
 
-const Counter = ({ dateFrom, dateTo }) => {
-  const [format, setFormat] = useState(FORMATS.YEARS);
-
+const Counter = ({ dateFrom, dateTo, format, onClick, show }) => {
   const getDifference = (date1, date2) => {
     if (format == FORMATS.YEARS) {
       return differenceInYears(date2, date1);
@@ -78,34 +72,26 @@ const Counter = ({ dateFrom, dateTo }) => {
     return 0;
   };
 
-  const changeFormat = () => {
-    const formats = Object.values(FORMATS);
-    const nextFormat = formats[(formats.indexOf(format) + 1) % formats.length];
-    setFormat(nextFormat);
-  };
-
   return (
-    <motion.div
-      className="counter"
-      onClick={changeFormat}
-      layout
-      transition={{ duration: 0.15 }}
-    >
-      <motion.div
-        className="counter-number"
-        layout
-        transition={{ duration: 0.15 }}
-      >
-        {getCount()}
-      </motion.div>
-      <motion.div
-        className="counter-postfix"
-        layout
-        transition={{ duration: 0.15 }}
-      >
-        {getCountPostfix()}
-      </motion.div>
-    </motion.div>
+    <AnimatePresence>
+      {show && (
+        <div className="counter-wrapper counter-wrapper-absolute">
+          <motion.div
+            className="counter counter-absolute"
+            onClick={onClick}
+            variants={variants}
+            initial="initial"
+            animate="visible"
+            exit="exit"
+          >
+            <motion.div className="counter-number">{getCount()}</motion.div>
+            <motion.div className="counter-postfix">
+              {getCountPostfix()}
+            </motion.div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
   );
 };
 

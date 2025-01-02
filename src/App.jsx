@@ -1,5 +1,6 @@
 import "./App.css";
-import Counter from "./Counter";
+import CounterContainer from "./CounterContainer";
+import CounterHeader from "./CounterHeader";
 
 const RELATIONSHIP_START = "2021-12-04T04:00:00";
 const VIKSI_BIRTHDAY = "1994-10-23";
@@ -17,9 +18,9 @@ function App() {
   const now = () => new Date();
 
   return (
-    <div>
-      {/* <h1>Together for</h1> */}
-      <Counter dateFrom={relationshipStart()} dateTo={now()} />
+    <div className="container">
+      <CounterHeader />
+      <CounterContainer dateFrom={relationshipStart()} dateTo={now()} />
     </div>
   );
 }

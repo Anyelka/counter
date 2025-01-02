@@ -29,6 +29,25 @@
     url("./assets/fonts/Simple_Michael.otf") format("truetype");
 }
 
+@font-face {
+  font-family: "Fragment"; /*Can be any text*/
+  src: local("Fragment"),
+    url("./assets/fonts/Fragmentcore.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "JosephSophia"; /*Can be any text*/
+  src: local("JosephSophia"),
+    url("./assets/fonts/josephsophia/josephsophia.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "AndreaBellarosa";
+  src: local("AndreaBellarosa"),
+    url("./assets/fonts/andrea_bilarosa/Andrea_Bellarosa.ttf")
+      format("truetype");
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,6 +58,40 @@
 body {
   background-color: black;
   color: rgb(226, 226, 226);
+}
+
+.container {
+  position: relative;
+}
+
+.counter-header {
+  position: relative;
+}
+
+.counter-header-text-major {
+  margin: 2.5rem;
+  font-size: 3.5em;
+  font-family: "AndreaBellarosa";
+}
+
+.counter-header-text-minor {
+  margin: 2.5rem;
+  font-size: 1.5em;
+  font-family: "Bonello";
+}
+
+.counter-container {
+  position: relative;
+}
+
+.counter-wrapper {
+}
+
+.counter-wrapper-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .counter {
@@ -56,40 +109,4 @@ body {
 .counter-postfix {
   font-family: "SimpleMichael";
   font-size: xx-large;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
