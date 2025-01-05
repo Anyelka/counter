@@ -30,17 +30,32 @@ body {
 }
 
 .menu {
+  background-color: #f7f7f7;
+  border-radius: 0px 0px 3px 3px;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 0.5rem;
   z-index: 1000;
+  width: 3rem;
+}
+
+.menu-open-button {
+  background: transparent;
+  width: 100%;
+  padding: 0;
+  max-height: 2rem;
+  overflow: hidden;
+}
+
+.menu-open-button-icon {
+  width: 90%;
+  height: 100%;
 }
 
 .menu-button {
   display: flex;
   border: 0px;
   padding: 0px;
-  margin: 10px;
   border-radius: 35px;
   width: 3rem;
 }
@@ -179,4 +194,8 @@ body {
 }
 .CircularProgressbar-background {
   fill: green;
+}
+
+button:focus {
+  outline: none;
 }
