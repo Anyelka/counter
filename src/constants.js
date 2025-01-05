@@ -21,3 +21,8 @@ export const DATA = {
     ],
   },
 };
+
+export const PAGES = {
+  COUNTER: "COUNTER",
+  PERCENT: "PERCENT",
+};
