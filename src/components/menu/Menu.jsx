@@ -43,12 +43,12 @@ const Menu = ({ openCounter, openPercent }) => {
     );
   };
 
-  const renderOpenMenu = () => {
+  const renderMenuOptions = () => {
     return (
-      <>
+      <motion.div initial={{ y: -30 }} animate={{ y: 0 }}>
         {renderMenuOption(openCounter, counterIcon)}
         {renderMenuOption(openPercent, percentIcon)}
-      </>
+      </motion.div>
     );
   };
 
@@ -58,9 +58,8 @@ const Menu = ({ openCounter, openPercent }) => {
       variants={menuVariants}
       initial="closed"
       animate={open ? "open" : "closed"}
-      layout
     >
-      {open && renderOpenMenu()}
+      {open && renderMenuOptions()}
       <motion.button
         className="menu-open-button"
         onClick={toggle}
@@ -68,6 +67,7 @@ const Menu = ({ openCounter, openPercent }) => {
         initial="closed"
         animate={open ? "open" : "closed"}
         whileHover="hover"
+        layout
       >
         <img className="menu-open-button-icon" src={arrow} />
       </motion.button>
