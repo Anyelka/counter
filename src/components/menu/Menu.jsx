@@ -67,7 +67,7 @@ const Menu = ({ openCounter, openPercent }) => {
         initial="closed"
         animate={open ? "open" : "closed"}
         whileHover="hover"
-        layout
+        /* layout */
       >
         <img className="menu-open-button-icon" src={arrow} />
       </motion.button>

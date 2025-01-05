@@ -1,8 +1,5 @@
 export const withEveryThirdDigitSeparated = (number) => {
   const numberString = number.toString();
-  if (numberString.length < 6) {
-    return numberString;
-  }
   return numberString.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 };
 
