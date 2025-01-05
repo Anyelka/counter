@@ -30,7 +30,7 @@ body {
 }
 
 .menu {
-  background-color: #f7f7f7;
+  background-color: #e9e7e7;
   border-radius: 0px 0px 3px 3px;
   position: fixed;
   top: 0;
@@ -58,6 +58,7 @@ body {
   padding: 0px;
   border-radius: 35px;
   width: 3rem;
+  background-color: transparent;
 }
 
 .menu-button-icon {

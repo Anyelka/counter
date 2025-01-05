@@ -6,9 +6,11 @@ import percentIcon from "./../../assets/icons/percent-2.png";
 
 const menuVariants = {
   closed: {
+    backgroundColor: "transparent",
     filter: "invert(100%)",
   },
   open: {
+    backgroundColor: "#e9e7e7",
     paddingTop: "10px",
     filter: "invert(0%)",
   },
