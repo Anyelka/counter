@@ -16,9 +16,12 @@ const menuVariants = {
   },
 };
 
+const hover = { scale: 1.2 };
+
 const openMenuButtonVariants = {
   closed: { rotateX: 0 },
   open: { rotateX: 180, y: 10 },
+  hover,
 };
 
 const Menu = ({ openCounter, openPercent }) => {
@@ -28,15 +31,23 @@ const Menu = ({ openCounter, openPercent }) => {
     setOpen(!open);
   };
 
+  const renderMenuOption = (onClick, icon) => {
+    return (
+      <motion.button
+        className="menu-button"
+        onClick={onClick}
+        whileHover={hover}
+      >
+        <img className="menu-button-icon" src={icon}></img>
+      </motion.button>
+    );
+  };
+
   const renderOpenMenu = () => {
     return (
       <>
-        <button className="menu-button" onClick={openCounter}>
-          <img className="menu-button-icon" src={counterIcon}></img>
-        </button>
-        <button className="menu-button" onClick={openPercent}>
-          <img className="menu-button-icon" src={percentIcon}></img>
-        </button>
+        {renderMenuOption(openCounter, counterIcon)}
+        {renderMenuOption(openPercent, percentIcon)}
       </>
     );
   };
@@ -56,6 +67,7 @@ const Menu = ({ openCounter, openPercent }) => {
         variants={openMenuButtonVariants}
         initial="closed"
         animate={open ? "open" : "closed"}
+        whileHover="hover"
       >
         <img className="menu-open-button-icon" src={arrow} />
       </motion.button>

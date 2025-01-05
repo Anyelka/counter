@@ -31,12 +31,13 @@ body {
 
 .menu {
   background-color: #e9e7e7;
-  border-radius: 0px 0px 3px 3px;
+  border-radius: 0px 0px 5px 5px;
   position: fixed;
   top: 0;
   left: 0.5rem;
   z-index: 1000;
   width: 3rem;
+  padding: 5px 5px;
 }
 
 .menu-open-button {
@@ -45,6 +46,7 @@ body {
   padding: 0;
   max-height: 2rem;
   overflow: hidden;
+  border: none;
 }
 
 .menu-open-button-icon {
@@ -198,5 +200,9 @@ body {
 }
 
 button:focus {
+  outline: none;
+}
+
+button:hover {
   outline: none;
 }
