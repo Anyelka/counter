@@ -9,13 +9,9 @@ import {
 } from "date-fns";
 import { AnimatePresence, motion } from "motion/react";
 import { FORMATS } from "../../constants";
+import { withEveryThirdDigitSeparated } from "../../utils";
 import SecondCounter from "./SecondCounter";
-
-const variants = {
-  initial: { y: 50, opacity: 0 },
-  visible: { y: 0, opacity: 1 },
-  exit: { y: -50, opacity: 0 },
-};
+import counterVariants from "./counterVariants";
 
 const Counter = ({ getDateFrom, getDateTo, format, onClick, show }) => {
   const getDifference = (date1, date2) => {
@@ -80,7 +76,11 @@ const Counter = ({ getDateFrom, getDateTo, format, onClick, show }) => {
         </motion.div>
       );
     }
-    return <div className="counter-number">{getCount()}</div>;
+    return (
+      <div className="counter-number">
+        {withEveryThirdDigitSeparated(getCount())}
+      </div>
+    );
   };
 
   return (
@@ -90,7 +90,7 @@ const Counter = ({ getDateFrom, getDateTo, format, onClick, show }) => {
           <motion.div
             className="counter counter-absolute"
             onClick={onClick}
-            variants={variants}
+            variants={counterVariants}
             initial="initial"
             animate="visible"
             exit="exit"

@@ -1,23 +1,4 @@
 @font-face {
-  font-family: "HistoryOfWawa"; /*Can be any text*/
-  src: local("HistoryOfWawa"),
-    url("./assets/fonts/history_of_wawa/History_of_Wawa.ttf") format("truetype");
-}
-
-@font-face {
-  /* Not good for numbers */
-  font-family: "Claven"; /*Can be any text*/
-  src: local("Claven"),
-    url("./assets/fonts/claven/Claven.otf") format("truetype");
-}
-
-@font-face {
-  font-family: "Tropiland"; /*Can be any text*/
-  src: local("Tropiland"),
-    url("./assets/fonts/tropiland.ttf") format("truetype");
-}
-
-@font-face {
   font-family: "Bonello"; /*Can be any text*/
   src: local("Bonello"),
     url("./assets/fonts/Bonello-Regular.otf") format("truetype");
@@ -27,18 +8,6 @@
   font-family: "SimpleMichael"; /*Can be any text*/
   src: local("SimpleMichael"),
     url("./assets/fonts/Simple_Michael.otf") format("truetype");
-}
-
-@font-face {
-  font-family: "Fragment"; /*Can be any text*/
-  src: local("Fragment"),
-    url("./assets/fonts/Fragmentcore.otf") format("truetype");
-}
-
-@font-face {
-  font-family: "JosephSophia"; /*Can be any text*/
-  src: local("JosephSophia"),
-    url("./assets/fonts/josephsophia/josephsophia.ttf") format("truetype");
 }
 
 @font-face {
@@ -122,6 +91,7 @@ body {
 .counter-number {
   font-family: "Bonello";
   font-size: xxx-large;
+  text-wrap: nowrap;
 }
 
 .counter-postfix {
@@ -134,6 +104,11 @@ body {
 }
 
 .percent-person {
+  width: max-content;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 }
 
 .percent-person-wrapper {
@@ -141,4 +116,67 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.percent {
+  width: 14em;
+  width: 14rem;
+  height: 14rem;
+}
+
+.percent-progress-bar-container {
+  width: max-content;
+}
+
+.percent-header-text-major {
+  font-family: "SimpleMichael";
+  font-size: xxx-large;
+}
+
+.percent-header-text-minor {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  font-family: "Bonello";
+}
+
+.percent-number {
+  font-family: "Bonello";
+  font-size: xxx-large;
+}
+
+.percent-footer-text {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.percent-footer-text-basic {
+  align-self: end;
+  font-size: 1.5em;
+  font-family: "SimpleMichael";
+}
+
+.percent-footer-text-highlighted {
+  margin-left: -10px;
+  font-size: 2.5em;
+  font-family: "AndreaBellarosa";
+}
+
+#CircularProgressbarWithChildren {
+  margin: 2rem;
+  width: max-content;
+}
+
+.CircularProgressbar-path {
+  stroke: white;
+}
+.CircularProgressbar-trail {
+  stroke: rgb(54, 54, 54);
+}
+.CircularProgressbar-text {
+  fill: white;
+}
+.CircularProgressbar-background {
+  fill: green;
 }

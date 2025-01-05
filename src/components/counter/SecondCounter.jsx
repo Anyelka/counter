@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { withEveryThirdDigitSeparated } from "../../utils";
 
 const SecondCounter = ({ secs }) => {
   const [seconds, setSeconds] = useState(secs);
@@ -12,7 +13,7 @@ const SecondCounter = ({ secs }) => {
     return () => clearInterval(interval);
   }, []);
 
-  return seconds;
+  return withEveryThirdDigitSeparated(seconds);
 };
 
 export default SecondCounter;
