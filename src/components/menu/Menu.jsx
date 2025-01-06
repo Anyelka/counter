@@ -31,11 +31,16 @@ const Menu = ({ openCounter, openPercent }) => {
     setOpen(!open);
   };
 
+  const onClickWithToggle = (onClick) => {
+    onClick();
+    toggle();
+  };
+
   const renderMenuOption = (onClick, icon) => {
     return (
       <motion.button
         className="menu-button"
-        onClick={onClick}
+        onClick={() => onClickWithToggle(onClick)}
         whileHover={hover}
       >
         <img className="menu-button-icon" src={icon}></img>

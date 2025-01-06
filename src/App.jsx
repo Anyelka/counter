@@ -30,25 +30,24 @@ function App() {
   }, []);
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.5 }}
+    >
       <Menu openCounter={openCounter} openPercent={openPercent} />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      >
-        {open === PAGES.COUNTER && (
-          <CounterPage getDateFrom={relationshipStart} getDateTo={now} />
-        )}
-        {open === PAGES.PERCENT && (
-          <PercentPage
-            getDateFrom={relationshipStart}
-            getDateTo={now}
-            persons={data?.persons}
-          />
-        )}
-      </motion.div>
-    </>
+
+      {open === PAGES.COUNTER && (
+        <CounterPage getDateFrom={relationshipStart} getDateTo={now} />
+      )}
+      {open === PAGES.PERCENT && (
+        <PercentPage
+          getDateFrom={relationshipStart}
+          getDateTo={now}
+          persons={data?.persons}
+        />
+      )}
+    </motion.div>
   );
 }
 
