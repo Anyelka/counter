@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import arrow from "./../../assets/icons/arrow-2.png";
+import countdownIcon from "./../../assets/icons/countdown-2.png";
 import counterIcon from "./../../assets/icons/counter-3.png";
 import percentIcon from "./../../assets/icons/percent-2.png";
 
@@ -24,7 +25,7 @@ const openMenuButtonVariants = {
   hover,
 };
 
-const Menu = ({ openCounter, openPercent }) => {
+const Menu = ({ openCountdown, openCounter, openPercent }) => {
   const [open, setOpen] = useState(false);
 
   const toggle = () => {
@@ -51,6 +52,7 @@ const Menu = ({ openCounter, openPercent }) => {
   const renderMenuOptions = () => {
     return (
       <motion.div initial={{ y: -30 }} animate={{ y: 0 }}>
+        {renderMenuOption(openCountdown, countdownIcon)}
         {renderMenuOption(openCounter, counterIcon)}
         {renderMenuOption(openPercent, percentIcon)}
       </motion.div>

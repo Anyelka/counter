@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import counterVariants from "./counterVariants";
 
-const CounterHeader = () => {
+const TogetherHeader = () => {
   return (
     <motion.div
       className="counter-header"
@@ -15,4 +15,4 @@ const CounterHeader = () => {
   );
 };
 
-export default CounterHeader;
+export default TogetherHeader;

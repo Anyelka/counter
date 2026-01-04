@@ -2,8 +2,13 @@ import { useState } from "react";
 import { FORMATS } from "../../constants";
 import Counter from "./Counter";
 
-const CounterContainer = ({ getDateFrom, getDateTo }) => {
-  const [format, setFormat] = useState(FORMATS.YEARS);
+const CounterContainer = ({
+  getDateFrom,
+  getDateTo,
+  defaultFormat,
+  increment,
+}) => {
+  const [format, setFormat] = useState(defaultFormat);
 
   const changeFormat = () => {
     const formats = Object.values(FORMATS);
@@ -20,6 +25,7 @@ const CounterContainer = ({ getDateFrom, getDateTo }) => {
           format={fmt}
           onClick={changeFormat}
           show={fmt === format}
+          increment={increment}
         />
       ))}
     </div>

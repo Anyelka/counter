@@ -13,7 +13,14 @@ import { withEveryThirdDigitSeparated } from "../../utils";
 import SecondCounter from "./SecondCounter";
 import counterVariants from "./counterVariants";
 
-const Counter = ({ getDateFrom, getDateTo, format, onClick, show }) => {
+const Counter = ({
+  getDateFrom,
+  getDateTo,
+  format,
+  onClick,
+  show,
+  increment,
+}) => {
   const getDifference = (date1, date2) => {
     if (format == FORMATS.YEARS) {
       return differenceInYears(date2, date1);
@@ -72,7 +79,7 @@ const Counter = ({ getDateFrom, getDateTo, format, onClick, show }) => {
     if (format == FORMATS.SECONDS) {
       return (
         <motion.div className="counter-number">
-          <SecondCounter secs={getCount()} />
+          <SecondCounter secs={getCount()} increment={increment} />
         </motion.div>
       );
     }

@@ -76,16 +76,43 @@ body {
   position: relative;
 }
 
+.counter-footer {
+  position: relative;
+  top: 2.5rem;
+}
+
 .counter-header-text-major {
-  margin: 2.5rem;
+  margin: 2.5rem 0rem;
   font-size: 3.5em;
   font-family: "AndreaBellarosa";
 }
 
+.counter-header-text-major-21 {
+  margin: 1.5rem 0rem;
+  font-size: 3.5em;
+  font-family: "AndreaBellarosa";
+}
+
+.counter-header-text-major-22 {
+  margin: 2.5rem 0rem;
+  font-size: 2.5em;
+  font-family: "AndreaBellarosa";
+}
+
 .counter-header-text-minor {
-  margin: 2.5rem;
+  margin: 3.5rem 0rem;
   font-size: 1.5em;
   font-family: "Bonello";
+}
+
+.counter-header-text-minor-2 {
+  margin: 0rem;
+  font-size: 1.5em;
+  font-family: "Bonello";
+}
+
+.counter-header-text-group {
+  display: flex;
 }
 
 .counter-body {

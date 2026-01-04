@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { withEveryThirdDigitSeparated } from "../../utils";
 
-const SecondCounter = ({ secs }) => {
+const SecondCounter = ({ secs, increment }) => {
   const [seconds, setSeconds] = useState(secs);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds((prevSeconds) => prevSeconds + 1);
+      setSeconds((prevSeconds) => {
+        if (increment) return prevSeconds + 1;
+        else return prevSeconds - 1;
+      });
     }, 1000);
 
     // Cleanup interval on component unmount

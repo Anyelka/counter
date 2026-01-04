@@ -9,6 +9,7 @@ export const FORMATS = {
 };
 
 export const PAGES = {
+  COUNTDOWN: "COUNTDOWN",
   COUNTER: "COUNTER",
   PERCENT: "PERCENT",
 };

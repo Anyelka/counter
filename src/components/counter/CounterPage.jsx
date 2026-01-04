@@ -1,11 +1,24 @@
+import { FORMATS } from "../../constants";
 import CounterContainer from "./CounterContainer";
-import CounterHeader from "./CounterHeader";
 
-const CounterPage = ({ getDateFrom, getDateTo }) => {
+const CounterPage = ({
+  getDateFrom,
+  getDateTo,
+  header = <></>,
+  footer = <></>,
+  defaultFormat = FORMATS.YEARS,
+  increment = true,
+}) => {
   return (
     <div className="counter-page">
-      <CounterHeader />
-      <CounterContainer getDateFrom={getDateFrom} getDateTo={getDateTo} />
+      {header}
+      <CounterContainer
+        getDateFrom={getDateFrom}
+        getDateTo={getDateTo}
+        defaultFormat={defaultFormat}
+        increment={increment}
+      />
+      {footer}
     </div>
   );
 };
