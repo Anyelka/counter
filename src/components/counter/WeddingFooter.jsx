@@ -10,10 +10,8 @@ const WeddingFooter = () => {
       animate="visible"
     >
       <h2 className="counter-header-text-minor-2">until</h2>
-      <div className="counter-header-text-group">
-        <p className="counter-header-text-major-21">Martoria</p>
-        <p className="counter-header-text-major-22">2026</p>
-      </div>
+      <p className="counter-header-text-major-21">Martoria</p>
+      <p className="counter-header-text-major-22">2026.09.05</p>
     </motion.div>
   );
 };
