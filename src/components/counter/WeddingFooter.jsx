@@ -3,7 +3,7 @@ import counterVariants from "./counterVariants";
 
 const WeddingFooter = ({ date }) => {
   const getDate = () => {
-    return date.split("T")[0].replaceAll("-", ".") + ".";
+    return date?.split("T")[0].replaceAll("-", ".") + ".";
   };
   return (
     <motion.div
