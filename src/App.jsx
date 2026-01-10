@@ -48,7 +48,7 @@ function App() {
         <CounterPage
           getDateFrom={now}
           getDateTo={weddingDate}
-          footer={<WeddingFooter />}
+          footer={<WeddingFooter date={data?.wedding} />}
           defaultFormat={FORMATS.DAYS}
           increment={false}
         />

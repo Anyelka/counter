@@ -91,14 +91,14 @@ body {
   margin: 1.5rem 0rem;
   font-size: 3.5em;
   font-family: "AndreaBellarosa";
-  margin-right: 5rem;
+  /* margin-right: 5rem; */
 }
 
 .counter-header-text-major-22 {
   margin: 0rem;
   font-size: 2.5em;
   font-family: "SimpleMichael";
-  margin-left: 5rem;
+  /* margin-left: 5rem; */
 }
 
 .counter-header-text-minor {
