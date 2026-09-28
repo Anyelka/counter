@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import "./App.css";
 import CounterPage from "./components/counter/CounterPage";
+import MarriedHeader from "./components/counter/MarriedHeader";
 import TogetherHeader from "./components/counter/TogetherHeader";
 import WeddingFooter from "./components/counter/WeddingFooter";
 import Menu from "./components/menu/Menu";
@@ -11,7 +12,7 @@ import { FORMATS, PAGES } from "./constants";
 import { db } from "./firebaseConfig";
 
 function App() {
-  const [open, setOpen] = useState(PAGES.COUNTDOWN);
+  const [open, setOpen] = useState(PAGES.MARRIAGE_COUNTER);
   const [data, setData] = useState();
 
   const relationshipStart = () => new Date(data?.start);
@@ -19,8 +20,9 @@ function App() {
 
   const now = () => new Date();
 
-  const openCountdown = () => setOpen(PAGES.COUNTDOWN);
-  const openCounter = () => setOpen(PAGES.COUNTER);
+  const openCountdown = () => setOpen(PAGES.WEDDING_COUNTDOWN);
+  const openMarriageCounter = () => setOpen(PAGES.MARRIAGE_COUNTER);
+  const openCounter = () => setOpen(PAGES.RELATIONSHIP_COUNTER);
   const openPercent = () => setOpen(PAGES.PERCENT);
 
   useEffect(() => {
@@ -41,10 +43,11 @@ function App() {
     >
       <Menu
         openCountdown={openCountdown}
+        openMarriageCounter={openMarriageCounter}
         openCounter={openCounter}
         openPercent={openPercent}
       />
-      {open === PAGES.COUNTDOWN && (
+      {open === PAGES.WEDDING_COUNTDOWN && (
         <CounterPage
           getDateFrom={now}
           getDateTo={weddingDate}
@@ -53,7 +56,15 @@ function App() {
           increment={false}
         />
       )}
-      {open === PAGES.COUNTER && (
+      {open === PAGES.MARRIAGE_COUNTER && (
+        <CounterPage
+          getDateFrom={weddingDate}
+          getDateTo={now}
+          header={<MarriedHeader />}
+          defaultFormat={FORMATS.DAYS}
+        />
+      )}
+      {open === PAGES.RELATIONSHIP_COUNTER && (
         <CounterPage
           getDateFrom={relationshipStart}
           getDateTo={now}
